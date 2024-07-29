@@ -48,30 +48,53 @@ public class DetailViewController: UIViewController {
         }
     }
     
-    func showToast(message: String) {
-        let toastLabel = UILabel().then {
-            $0.text = message
-            $0.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    func showToasts(message: String) {
+        
+        let copiedLabel = UILabel().then {
+            $0.text = "copied"
             $0.textColor = UIColor.white
             $0.textAlignment = .center
-            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.font = UIFont.systemFont(ofSize: 26.0, weight: .bold)
+        }
+        let toastLabel = UILabel().then {
+            $0.text = message
+            $0.backgroundColor = UIColor.mainSubColor.withAlphaComponent(0.6)
+            $0.textColor = UIColor.white
+            $0.textAlignment = .center
+            $0.font = UIFont.systemFont(ofSize: 16)
             $0.alpha = 0.0
             $0.layer.cornerRadius = 10
             $0.clipsToBounds = true
         }
 
+        self.view.addSubview(copiedLabel)
         self.view.addSubview(toastLabel)
-        toastLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-30)
-            make.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualTo(view.snp.left).offset(50)
-            make.right.lessThanOrEqualTo(view.snp.right).offset(-50)
+        
+        copiedLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
+        
+        toastLabel.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(270)
+            $0.height.equalTo(28)
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            copiedLabel.alpha = 1.0
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.3, delay: 1.5, options: .curveEaseInOut, animations: {
+                copiedLabel.alpha = 0.0
+            }, completion: { _ in
+                copiedLabel.removeFromSuperview()
+            })
+        })
 
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut, animations: {
             toastLabel.alpha = 1.0
         }, completion: { _ in
-            UIView.animate(withDuration: 0.5, delay: 3.0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.4, delay: 3, options: .curveEaseInOut, animations: {
                 toastLabel.alpha = 0.0
             }, completion: { _ in
                 toastLabel.removeFromSuperview()
@@ -100,7 +123,7 @@ extension DetailViewController: UICollectionViewDataSource {
 
           if let text = cell?.tagLabel.text {
               UIPasteboard.general.string = text
-              showToast(message: "방금 클릭한 콘티가 복사되었어요!")
+              showToasts(message: "방금 클릭한 콘티가 복사되었어요!")
           }
 
           cell?.isSelected = true

@@ -22,7 +22,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         catEmojis,
         dogEmojis,
         requestEmojis,
-        greetingEmojis
+        greetingEmojis,
+        bearEmojis,
+        rabbits,
+        ducks
     ]
     
     override func viewDidLoad() {
@@ -59,14 +62,17 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func loadData() {
         cellData = [
-            CellData(title: "행복해요", subtitle: "໒꒰ྀི•ू⁼̴̶̤̀༥⁼̴̶̤́•ू ꒱ྀི১", emoji: "🥴", image: UIImage(systemName: "house")!),
-            CellData(title: "화났어요", subtitle: "ʕ•̀⤙•́ ʔ", emoji: "😡", image: UIImage(systemName: "car")!),
-            CellData(title: "걱정돼요", subtitle: "( ⸝⸝･̆⤚･̆⸝⸝)", emoji: "🥺", image: UIImage(systemName: "bicycle")!),
-            CellData(title: "곤란해요", subtitle: "(〃•︵•〃)", emoji: "😖", image: UIImage(systemName: "airplane")!),
-            CellData(title: "고양이", subtitle: "₍˄·͈༝·͈˄₎", emoji: "🐱", image: UIImage(systemName: "tram")!),
-            CellData(title: "강아지", subtitle: "૮(˳❛ ⌔̫ ❛˳)ა", emoji: "🐶", image: UIImage(systemName: "ferry")!),
-            CellData(title: "부탁해요", subtitle: "(っ ॑꒳ ॑c )", emoji: "🙏", image: UIImage(systemName: "tram")!),
-            CellData(title: "인사해요", subtitle: "꒰⸝⸝•ᴗ•⸝⸝꒱੭⁾⁾", emoji: "👋", image: UIImage(systemName: "ferry")!)
+            CellData(title: "#행복해요", subtitle: "໒꒰ྀི•ू⁼̴̶̤̀༥⁼̴̶̤́•ू ꒱ྀི১", emoji: "🥴", image: UIImage(systemName: "house")!),
+            CellData(title: "#화났어요", subtitle: "ʕ•̀⤙•́ ʔ", emoji: "😡", image: UIImage(systemName: "car")!),
+            CellData(title: "#걱정돼요", subtitle: "( ⸝⸝･̆⤚･̆⸝⸝)", emoji: "🥺", image: UIImage(systemName: "bicycle")!),
+            CellData(title: "#곤란해요", subtitle: "(〃•︵•〃)", emoji: "😖", image: UIImage(systemName: "airplane")!),
+            CellData(title: "#냥냥이", subtitle: "₍˄·͈༝·͈˄₎", emoji: "🐱", image: UIImage(systemName: "tram")!),
+            CellData(title: "#댕댕이", subtitle: "૮(˳❛ ⌔̫ ❛˳)ა", emoji: "🐶", image: UIImage(systemName: "ferry")!),
+            CellData(title: "#부탁해요", subtitle: "(っ ॑꒳ ॑c )", emoji: "🙏", image: UIImage(systemName: "tram")!),
+            CellData(title: "#인사해요", subtitle: "꒰⸝⸝•ᴗ•⸝⸝꒱੭⁾⁾", emoji: "👋", image: UIImage(systemName: "ferry")!),
+            CellData(title: "#곰탱이", subtitle: "ʕ •ᴥ•ʔゝ☆", emoji: "🐻", image: UIImage(systemName: "ferry")!),
+            CellData(title: "#토순이", subtitle: "ᐢ⸝⸝ ›　 ̫ ‹ ⸝⸝ᐢ₎", emoji: "🐰", image: UIImage(systemName: "ferry")!),
+            CellData(title: "#꽥꽥이", subtitle: "ヾ(￣◇￣)ノ", emoji: "🐥", image: UIImage(systemName: "ferry")!)
         ]
     }
     

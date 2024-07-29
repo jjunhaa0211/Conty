@@ -9,10 +9,21 @@ struct CellData {
     var image: UIImage
 }
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var collectionView: UICollectionView!
     var cellData: [CellData] = []
+    
+    var dataSource: [[String]] = [
+        happyEmoticons,
+        specialEmoticons,
+        worryEmojis,
+        embarrassedEmojis,
+        catEmojis,
+        dogEmojis,
+        requestEmojis,
+        greetingEmojis
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +63,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             CellData(title: "화났어요", subtitle: "ʕ•̀⤙•́ ʔ", emoji: "😡", image: UIImage(systemName: "car")!),
             CellData(title: "걱정돼요", subtitle: "( ⸝⸝･̆⤚･̆⸝⸝)", emoji: "🥺", image: UIImage(systemName: "bicycle")!),
             CellData(title: "곤란해요", subtitle: "(〃•︵•〃)", emoji: "😖", image: UIImage(systemName: "airplane")!),
-            CellData(title: "신나요", subtitle: "՞ ̳o̴̶̷̤ ̫ o̴̶̷̤ ̳՞", emoji: "😆", image: UIImage(systemName: "tram")!),
-            CellData(title: "공부해요", subtitle: "ʕo•ᴥ•ʔ✎", emoji: "🤓", image: UIImage(systemName: "ferry")!),
+            CellData(title: "고양이", subtitle: "₍˄·͈༝·͈˄₎", emoji: "🐱", image: UIImage(systemName: "tram")!),
+            CellData(title: "강아지", subtitle: "૮(˳❛ ⌔̫ ❛˳)ა", emoji: "🐶", image: UIImage(systemName: "ferry")!),
             CellData(title: "부탁해요", subtitle: "(っ ॑꒳ ॑c )", emoji: "🙏", image: UIImage(systemName: "tram")!),
             CellData(title: "인사해요", subtitle: "꒰⸝⸝•ᴗ•⸝⸝꒱੭⁾⁾", emoji: "👋", image: UIImage(systemName: "ferry")!)
         ]
@@ -96,72 +107,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let emoticons = [
-            "᪗꒰ྀི ̥_ ̫ _ ̥꒱ྀིଓ",
-            "- ̗̀( ˘˙‎ࠔ˙˘) ̖́-",
-            "(⁎ᴗ͈ ⩊ ᴗ͈⁎)",
-            "(´-ᴗ-⸝⸝ก)",
-            "꒰ᐢ๑⸝⸝˙‎‎‎‎ࠔ˙⸝⸝๑ᐢ꒱",
-            "(⸝⸝¯ᵕ¯⸝⸝)",
-            "꒰ ՞ •͈ 𐃬 ꔷ͈ ՞꒱",
-            ".｡Oᐡ(⁎°ᴗ°⁎ᐡ )",
-            "(°͈̅​ ᢐ °͈̅)",
-            "໒꒰ྀི•ू⁼̴̶̤̀༥⁼̴̶̤́•ू ꒱ྀི১",
-            "૮₍ྀི ੑ𐬎 ݂. ٜ .݂ୄྀིა ̥ﾟ☘.⋆",
-            "₍ ⺣̤̬ ₎ ʰ ⁱ",
-            "(՞ ܸ.ˬ.ܸ՞)”",
-            "꒰՞⸝⸝⊃ ·̫ <՞꒱",
-            "(⸝⸝ᵕᴗᵕ⸝⸝)",
-            "ฅ(՞៸៸> ᗜ < ៸៸՞)ฅ",
-            "( 'ч' )",
-            "( ܸ ⩌⩊⩌ ܸ )",
-            "(⸝⸝◜~◝⸝⸝)",
-            "ʕ ⸝⸝⸝⁰⃚⃙̴ ༝ ⁰⃚⃙̴ ʔ",
-            "꒰ᐡ⸝ɞ̴̶̷ 𞥙 ɞ̴̶̷⸝ᐡ꒱ ׁ ₊",
-            "ミ⁰̷̴͈ 。⁰̷̴͈ ミ",
-            "ദ്ദി ( ᵔ ᗜ ᵔ )",
-            "(´｡• ◡ •｡`) ♡",
-            "૮ ․ ․ ྀིა",
-            "₍^ >ヮ<^₎ .ᐟ.ᐟ",
-            "(๑’ᗢ’๑)ฅ",
-            "(* ॑ᵕ ॑* )♡",
-            "(っ* ॑꒳ ॑*)╮",
-            "(∗'ര ᎑ ര`∗)",
-            " ̗  ̗꤮︠  ̫꤮︡ ̗  ̗",
-            "('. • ᵕ •. `)",
-            "˶ᵔ'ヮ'ᵔ˶",
-            "(*•؎ •*)",
-            "( ˶ˆᗜˆ˵ )",
-            "(,,>ヮ<,,)!",
-            "৻(≧ᗜ≦৻)",
-            "˶•⩊•˶",
-            "( ͈ര ̫ര ͈)",
-            "(ᐢᗜᐢ)",
-            "(๑'ᵕ'๑)⸝*",
-            "( • ᴗ - ) ✧",
-            "໒꒰ྀིᵔ ᵕ ᵔ ꒱ྀི১",
-            "໒꒰ྀི ˶ᵔ  ³ ᵔ˶ ꒱ྀིა",
-            "໒꒰ྀི∩ ᵒ̴̶̷̤‧̫ ᵒ̴̶̷̤ ∩꒱ྀི১",
-            "՞ ̥_  ̫ _ ̥՞♡",
-            "(̨̡ᐢ ⸝⸝o̴̶̷̤ ̫̭ o̴̶̷̤⸝⸝ ᐢ)̧̢",
-            "꒰ ᐡᴗ͈ ·̫ ᴗ͈ ꒱♡",
-            "- ̗̀ෆ⎛˶'ᵕ'˶ ⎞ෆ ̖́-",
-            "꜆₍ᐢ˶•ᴗ•˶ᐢ₎꜆",
-            "ʜɪ⚞ ᕬᕬ ෆ",
-            "₍ᐢ• ᴗ⁠ •ᐢ₎",
-            "ˁˆˑˆˀ",
-            "(˶• ﻌ •˶)",
-            "ʕ・ᵌ・ʔ",
-            "(˶• ֊ •˶)",
-            "ᐢ ̳ᴗ ̫ ᴗ ̳ᐢ",
-            "(ᐢ⑅•ᴗ•⑅ᐢ)",
-            "ʕ˶´• ᴥ •`˶ʔ",
-            "(՞˶･֊･˶՞)",
-            "٩(˙ᵕ˙⑅๑)",
-            "( · ❛ ֊ ❛)"
-        ]
-        
-        let detailVC = DetailViewController(tagList: emoticons)
+        let emoticonsForItem = dataSource[indexPath.row]
+
+        let detailVC = DetailViewController(tagList: emoticonsForItem)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

@@ -10,7 +10,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func start() {
-        window?.rootViewController = BaseNC(rootViewController: ViewController())
+        window?.rootViewController = BaseNC(rootViewController: MainViewController())
         window?.makeKeyAndVisible()
     }
 }

@@ -10,9 +10,12 @@
 		0E5F44522C5764E300FAFE52 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */; };
 		0E5F44542C57768E00FAFE52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44532C57768E00FAFE52 /* DetailViewController.swift */; };
 		0E5F44572C57828700FAFE52 /* BaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44562C57828700FAFE52 /* BaseNC.swift */; };
+		0E5F44592C57834F00FAFE52 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44582C57834F00FAFE52 /* TagCell.swift */; };
+		0E5F445B2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F445A2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		0E5F44602C57842A00FAFE52 /* EmoticonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F445F2C57842A00FAFE52 /* EmoticonsData.swift */; };
 		0EAEF5632C57528600F75E70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5622C57528600F75E70 /* AppDelegate.swift */; };
 		0EAEF5652C57528600F75E70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5642C57528600F75E70 /* SceneDelegate.swift */; };
-		0EAEF5672C57528600F75E70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5662C57528600F75E70 /* ViewController.swift */; };
+		0EAEF5672C57528600F75E70 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5662C57528600F75E70 /* MainViewController.swift */; };
 		0EAEF56C2C57528800F75E70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAEF56B2C57528800F75E70 /* Assets.xcassets */; };
 		0EAEF56F2C57528800F75E70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAEF56D2C57528800F75E70 /* LaunchScreen.storyboard */; };
 		0EAEF5782C5757D800F75E70 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5772C5757D800F75E70 /* UIColor+.swift */; };
@@ -24,10 +27,13 @@
 		0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0E5F44532C57768E00FAFE52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0E5F44562C57828700FAFE52 /* BaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNC.swift; sourceTree = "<group>"; };
+		0E5F44582C57834F00FAFE52 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		0E5F445A2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		0E5F445F2C57842A00FAFE52 /* EmoticonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonsData.swift; sourceTree = "<group>"; };
 		0EAEF55F2C57528600F75E70 /* Conty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAEF5622C57528600F75E70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EAEF5642C57528600F75E70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0EAEF5662C57528600F75E70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0EAEF5662C57528600F75E70 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0EAEF56B2C57528800F75E70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EAEF56E2C57528800F75E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EAEF5702C57528800F75E70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +61,32 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		0E5F445C2C57838C00FAFE52 /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				0E5F44532C57768E00FAFE52 /* DetailViewController.swift */,
+				0E5F445A2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift */,
+			);
+			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		0E5F445D2C57839C00FAFE52 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */,
+				0E5F44582C57834F00FAFE52 /* TagCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0E5F445E2C57841400FAFE52 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0E5F445F2C57842A00FAFE52 /* EmoticonsData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		0EAEF5562C57528600F75E70 = {
 			isa = PBXGroup;
 			children = (
@@ -74,12 +106,13 @@
 		0EAEF5612C57528600F75E70 /* Conty */ = {
 			isa = PBXGroup;
 			children = (
+				0E5F445E2C57841400FAFE52 /* Data */,
 				0E5F44552C57828000FAFE52 /* Base */,
 				0EAEF5622C57528600F75E70 /* AppDelegate.swift */,
 				0EAEF5642C57528600F75E70 /* SceneDelegate.swift */,
-				0EAEF5662C57528600F75E70 /* ViewController.swift */,
-				0E5F44532C57768E00FAFE52 /* DetailViewController.swift */,
-				0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */,
+				0EAEF5662C57528600F75E70 /* MainViewController.swift */,
+				0E5F445C2C57838C00FAFE52 /* DetailVC */,
+				0E5F445D2C57839C00FAFE52 /* Cell */,
 				0EAEF5762C5757D200F75E70 /* Extension */,
 				0EAEF56B2C57528800F75E70 /* Assets.xcassets */,
 				0EAEF56D2C57528800F75E70 /* LaunchScreen.storyboard */,
@@ -174,13 +207,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EAEF5672C57528600F75E70 /* ViewController.swift in Sources */,
+				0EAEF5672C57528600F75E70 /* MainViewController.swift in Sources */,
 				0E5F44522C5764E300FAFE52 /* CustomCollectionViewCell.swift in Sources */,
 				0EAEF5782C5757D800F75E70 /* UIColor+.swift in Sources */,
+				0E5F44602C57842A00FAFE52 /* EmoticonsData.swift in Sources */,
 				0E5F44542C57768E00FAFE52 /* DetailViewController.swift in Sources */,
+				0E5F44592C57834F00FAFE52 /* TagCell.swift in Sources */,
 				0EAEF5632C57528600F75E70 /* AppDelegate.swift in Sources */,
 				0E5F44572C57828700FAFE52 /* BaseNC.swift in Sources */,
 				0EAEF5652C57528600F75E70 /* SceneDelegate.swift in Sources */,
+				0E5F445B2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

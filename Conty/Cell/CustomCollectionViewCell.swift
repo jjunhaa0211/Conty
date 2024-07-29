@@ -77,7 +77,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with image: UIImage?, emoji: String?, title: String, subtitle: String) {
-//        imageView.image = image
         centerLabel.text = emoji
         titleLabel.text = title
         subtitleLabel.text = subtitle

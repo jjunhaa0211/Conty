@@ -13,7 +13,7 @@ public class BigEmoticonsViewController: UIViewController, UICollectionViewDataS
          layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
          
          $0.collectionViewLayout = layout
-         $0.backgroundColor = .white
+         $0.backgroundColor = .mainTintColor
      }
     
     public init(tagList: [String]) {
@@ -27,13 +27,36 @@ public class BigEmoticonsViewController: UIViewController, UICollectionViewDataS
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .mainTintColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(TagCells.self, forCellWithReuseIdentifier: "tagCellId")
         layoutCollectionView()
+        
+        title = "ʕ◍·̀Ⱉ·́◍ʔ"
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.isTranslucent = false
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance().then {
+                $0.configureWithOpaqueBackground()
+                $0.backgroundColor = UIColor.mainTintColor
+                $0.titleTextAttributes = textAttributes
+                
+            }
+            
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            navigationController?.navigationBar.barTintColor = UIColor.mainTintColor
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
+        }
     }
     
     func layoutCollectionView() {
@@ -103,8 +126,8 @@ extension BigEmoticonsViewController {
 
 class TagCells: UICollectionViewCell {
     let textView = UITextView().then {
-        $0.textColor = .black
-        $0.backgroundColor = .lightGray
+        $0.textColor = .white
+        $0.backgroundColor = .mainTintColor
         $0.isEditable = false
         $0.isSelectable = false
         $0.isUserInteractionEnabled = false
@@ -133,8 +156,8 @@ class TagCells: UICollectionViewCell {
     }
 
     func flipColors() {
-        let newBackgroundColor: UIColor = textView.backgroundColor == .lightGray ? .black : .lightGray
-        let newTextColor: UIColor = textView.textColor == .black ? .white : .black
+        let newBackgroundColor: UIColor = textView.backgroundColor == UIColor.mainTintColor ? .white : .mainTintColor
+        let newTextColor: UIColor = textView.textColor == UIColor.white ? .black : .white
         UIView.animate(withDuration: 0.3) {
             self.textView.backgroundColor = newBackgroundColor
             self.textView.textColor = newTextColor
@@ -142,8 +165,8 @@ class TagCells: UICollectionViewCell {
     }
     
     func resetColors() {
-        textView.backgroundColor = .lightGray
-        textView.textColor = .black
+        textView.backgroundColor = .mainTintColor
+        textView.textColor = .white
     }
 }
 

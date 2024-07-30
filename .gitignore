@@ -1,0 +1,32 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+## AppStore
+AppStore/
+## Production Deployment
+configs/Release.xcconfig
+
+## Build generated
+build/
+DerivedData/
+
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+Dependencies/
+.accio/
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+.DS_Store
+
+/Users/junha/Desktop/Conty/Conty/Data

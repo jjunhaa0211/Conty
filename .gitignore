@@ -29,4 +29,5 @@ fastlane/test_output
 
 .DS_Store
 
-/Users/junha/Desktop/Conty/Conty/Data
+/Users/junha/Desktop/Conty/Conty/Data/EmoticonsData.swift
+/Users/junha/Desktop/Conty/Conty/Data/BigEmoticonsData.swift

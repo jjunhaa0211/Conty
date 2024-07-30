@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import Then
+import GoogleMobileAds
 
 struct CellData {
     var title: String
@@ -8,11 +9,19 @@ struct CellData {
     var emoji: String
 }
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GADBannerViewDelegate {
     
     var collectionView: UICollectionView!
     var cellData: [CellData] = []
     
+    lazy var bannerView = GADBannerView().then {
+        //ca-app-pub-3940256099942544/2934735716 테스트키
+        $0.adUnitID = "ca-app-pub-9038207137251650/1163778242"
+        $0.rootViewController = self
+        $0.load(GADRequest())
+        $0.delegate = self
+    }
+        
     var dataSource: [[String]] = [
         happyEmoticons,
         specialEmoticons,
@@ -53,6 +62,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupNavigationBar()
         setupCollectionView()
         loadData()
+        
+        view.addSubview(bannerView)
+        bannerView.snp.makeConstraints {
+            
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-5)
+            $0.left.equalTo(self.view.safeAreaLayoutGuide).offset(20)
+            $0.right.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
+            $0.height.equalTo(45)
+        }
     }
     
     private func setupNavigationBar() {

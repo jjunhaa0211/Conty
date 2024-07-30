@@ -23,6 +23,7 @@
 		3C87280B2C58643F00FF903D /* RecentCopiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87280A2C58643F00FF903D /* RecentCopiesViewController.swift */; };
 		3C87280D2C58821000FF903D /* EmoticonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87280C2C58821000FF903D /* EmoticonsData.swift */; };
 		3C87280F2C58822200FF903D /* BigEmoticonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87280E2C58822200FF903D /* BigEmoticonsData.swift */; };
+		3C8728122C5885BF00FF903D /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 3C8728112C5885BF00FF903D /* GoogleMobileAds */; };
 		3CDC3BA32C57CC09004E953E /* BigEmoticonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC3BA22C57CC09004E953E /* BigEmoticonsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8728122C5885BF00FF903D /* GoogleMobileAds in Frameworks */,
 				0EAEF57B2C575AE100F75E70 /* SnapKit in Frameworks */,
 				0EAEF57E2C575AEF00F75E70 /* Then in Frameworks */,
 			);
@@ -173,6 +175,7 @@
 			packageProductDependencies = (
 				0EAEF57A2C575AE100F75E70 /* SnapKit */,
 				0EAEF57D2C575AEF00F75E70 /* Then */,
+				3C8728112C5885BF00FF903D /* GoogleMobileAds */,
 			);
 			productName = Conty;
 			productReference = 0EAEF55F2C57528600F75E70 /* Conty.app */;
@@ -205,6 +208,7 @@
 			packageReferences = (
 				0EAEF5792C575AE100F75E70 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0EAEF57C2C575AEF00F75E70 /* XCRemoteSwiftPackageReference "Then" */,
+				3C8728102C5885BF00FF903D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 0EAEF5602C57528600F75E70 /* Products */;
 			projectDirPath = "";
@@ -401,6 +405,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_BUNDLE_IDENTIFIER = jjunhaa0211.Conty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -429,6 +434,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-Objc";
 				PRODUCT_BUNDLE_IDENTIFIER = jjunhaa0211.Conty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -477,6 +483,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		3C8728102C5885BF00FF903D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -489,6 +503,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0EAEF57C2C575AEF00F75E70 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		3C8728112C5885BF00FF903D /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C8728102C5885BF00FF903D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

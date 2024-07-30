@@ -8,7 +8,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         start()
     }
-    
+
     private func start() {
         window?.rootViewController = BaseNC(rootViewController: MainViewController())
         window?.makeKeyAndVisible()

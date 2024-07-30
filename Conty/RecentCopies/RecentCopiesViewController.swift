@@ -10,7 +10,9 @@ class RecentCopiesViewController: UIViewController, UITableViewDelegate, UITable
     private let tableView = UITableView().then {
         $0.backgroundColor = .mainTintColor
         $0.allowsMultipleSelection = false
+        $0.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
     private let emptyLabel = UILabel().then {
         $0.text = "헉! 복사한 것이 하나도 없네요 o̴̶̷̥᷅⌓o̴̶̷᷄"
         $0.textAlignment = .center
@@ -30,7 +32,6 @@ class RecentCopiesViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints {

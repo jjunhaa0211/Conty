@@ -15,8 +15,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var cellData: [CellData] = []
     
     lazy var bannerView = GADBannerView().then {
-        //ca-app-pub-3940256099942544/2934735716 테스트키
-        $0.adUnitID = "ca-app-pub-9038207137251650/1163778242"
+        $0.adUnitID = "\(appID)"
         $0.rootViewController = self
         $0.load(GADRequest())
         $0.delegate = self
@@ -65,10 +64,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         view.addSubview(bannerView)
         bannerView.snp.makeConstraints {
-            
-            $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-5)
-            $0.left.equalTo(self.view.safeAreaLayoutGuide).offset(20)
-            $0.right.equalTo(self.view.safeAreaLayoutGuide).offset(-20)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-5)
+            $0.left.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.right.equalTo(view.safeAreaLayoutGuide).offset(-20)
             $0.height.equalTo(45)
         }
     }
@@ -90,22 +88,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             navigationController?.navigationBar.barTintColor = UIColor.mainTintColor
             navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
-
-        let leftButton = UIBarButtonItem(title: "ʕ　·ᴥ·ʔ", style: .plain, target: self, action: #selector(leftButtonTapped))
-        let rightButton = UIBarButtonItem(title: "ʕ·ᴥ·　ʔ", style: .plain, target: self, action: #selector(rightButtonTapped))
         
         let buttonAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 12.0, weight: .bold),
             .foregroundColor: UIColor.white
         ]
-        leftButton.setTitleTextAttributes(buttonAttributes, for: .normal)
-        rightButton.setTitleTextAttributes(buttonAttributes, for: .normal)
+        
+        let leftButton = UIBarButtonItem(title: "ʕ　·ᴥ·ʔ", style: .plain, target: self, action: #selector(leftButtonTapped)).then {
+            $0.setTitleTextAttributes(buttonAttributes, for: .normal)
+        }
+        
+        let rightButton = UIBarButtonItem(title: "ʕ·ᴥ·　ʔ", style: .plain, target: self, action: #selector(rightButtonTapped)).then {
+            $0.setTitleTextAttributes(buttonAttributes, for: .normal)
+        }
         
         navigationItem.leftBarButtonItem = leftButton
         navigationItem.rightBarButtonItem = rightButton
     }
-
-    
     
     func loadData() {
         guard dataSource.count >= 27 else {
@@ -200,13 +199,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @objc func leftButtonTapped() {
-        print("왼쪽 버튼이 눌렸습니다.")
         self.navigationController?.pushViewController(BigEmoticonsViewController(tagList: tagList), animated: true)
     }
 
     @objc func rightButtonTapped() {
-        print("오른쪽 버튼이 눌렸습니다.")
-        let recentCopiesVC = RecentCopiesViewController()
-        navigationController?.pushViewController(recentCopiesVC, animated: true)
+        navigationController?.pushViewController(RecentCopiesViewController(), animated: true)
     }
 }

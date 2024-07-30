@@ -10,7 +10,7 @@
 		0E5F44522C5764E300FAFE52 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */; };
 		0E5F44542C57768E00FAFE52 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44532C57768E00FAFE52 /* DetailViewController.swift */; };
 		0E5F44572C57828700FAFE52 /* BaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44562C57828700FAFE52 /* BaseNC.swift */; };
-		0E5F44592C57834F00FAFE52 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44582C57834F00FAFE52 /* TagCell.swift */; };
+		0E5F44592C57834F00FAFE52 /* EmoticonTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F44582C57834F00FAFE52 /* EmoticonTagCell.swift */; };
 		0E5F445B2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F445A2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		0EAEF5632C57528600F75E70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5622C57528600F75E70 /* AppDelegate.swift */; };
 		0EAEF5652C57528600F75E70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5642C57528600F75E70 /* SceneDelegate.swift */; };
@@ -24,6 +24,12 @@
 		3C87280D2C58821000FF903D /* EmoticonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87280C2C58821000FF903D /* EmoticonsData.swift */; };
 		3C87280F2C58822200FF903D /* BigEmoticonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87280E2C58822200FF903D /* BigEmoticonsData.swift */; };
 		3C8728122C5885BF00FF903D /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 3C8728112C5885BF00FF903D /* GoogleMobileAds */; };
+		3C8728142C58B08F00FF903D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8728132C58B08F00FF903D /* UIViewController+.swift */; };
+		3C8728162C58B22600FF903D /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8728152C58B22600FF903D /* CALayer+.swift */; };
+		3C8728192C58B6DE00FF903D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8728182C58B6DE00FF903D /* Constants.swift */; };
+		3C87281B2C58B98E00FF903D /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87281A2C58B98E00FF903D /* BaseCollectionViewCell.swift */; };
+		3C87281D2C58BB5400FF903D /* BigTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87281C2C58BB5400FF903D /* BigTagCell.swift */; };
+		3C8728202C58C26500FF903D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87281F2C58C26500FF903D /* Config.swift */; };
 		3CDC3BA32C57CC09004E953E /* BigEmoticonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC3BA22C57CC09004E953E /* BigEmoticonsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +37,7 @@
 		0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0E5F44532C57768E00FAFE52 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0E5F44562C57828700FAFE52 /* BaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNC.swift; sourceTree = "<group>"; };
-		0E5F44582C57834F00FAFE52 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		0E5F44582C57834F00FAFE52 /* EmoticonTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonTagCell.swift; sourceTree = "<group>"; };
 		0E5F445A2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		0EAEF55F2C57528600F75E70 /* Conty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAEF5622C57528600F75E70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +50,12 @@
 		3C87280A2C58643F00FF903D /* RecentCopiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCopiesViewController.swift; sourceTree = "<group>"; };
 		3C87280C2C58821000FF903D /* EmoticonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmoticonsData.swift; path = Conty/Data/EmoticonsData.swift; sourceTree = SOURCE_ROOT; };
 		3C87280E2C58822200FF903D /* BigEmoticonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BigEmoticonsData.swift; path = Conty/Data/BigEmoticonsData.swift; sourceTree = SOURCE_ROOT; };
+		3C8728132C58B08F00FF903D /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		3C8728152C58B22600FF903D /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		3C8728182C58B6DE00FF903D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3C87281A2C58B98E00FF903D /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C87281C2C58BB5400FF903D /* BigTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigTagCell.swift; sourceTree = "<group>"; };
+		3C87281F2C58C26500FF903D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3CDC3BA22C57CC09004E953E /* BigEmoticonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigEmoticonsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5F44562C57828700FAFE52 /* BaseNC.swift */,
+				3C87281A2C58B98E00FF903D /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -73,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0E5F44532C57768E00FAFE52 /* DetailViewController.swift */,
+				3C8728182C58B6DE00FF903D /* Constants.swift */,
 				0E5F445A2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = DetailVC;
@@ -82,7 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				0E5F44512C5764E300FAFE52 /* CustomCollectionViewCell.swift */,
-				0E5F44582C57834F00FAFE52 /* TagCell.swift */,
+				0E5F44582C57834F00FAFE52 /* EmoticonTagCell.swift */,
+				3C87281C2C58BB5400FF903D /* BigTagCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -115,11 +130,13 @@
 		0EAEF5612C57528600F75E70 /* Conty */ = {
 			isa = PBXGroup;
 			children = (
+				3C87281E2C58C25D00FF903D /* Config */,
 				0E5F445E2C57841400FAFE52 /* Data */,
 				0E5F44552C57828000FAFE52 /* Base */,
 				0EAEF5622C57528600F75E70 /* AppDelegate.swift */,
 				0EAEF5642C57528600F75E70 /* SceneDelegate.swift */,
 				0EAEF5662C57528600F75E70 /* MainViewController.swift */,
+				3C8728172C58B6CC00FF903D /* Layout */,
 				3C8728092C58643A00FF903D /* RecentCopies */,
 				3CDC3BA12C57CBF4004E953E /* BigEmoticons */,
 				0E5F445C2C57838C00FAFE52 /* DetailVC */,
@@ -136,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				0EAEF5772C5757D800F75E70 /* UIColor+.swift */,
+				3C8728132C58B08F00FF903D /* UIViewController+.swift */,
+				3C8728152C58B22600FF903D /* CALayer+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -146,6 +165,21 @@
 				3C87280A2C58643F00FF903D /* RecentCopiesViewController.swift */,
 			);
 			path = RecentCopies;
+			sourceTree = "<group>";
+		};
+		3C8728172C58B6CC00FF903D /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		3C87281E2C58C25D00FF903D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3C87281F2C58C26500FF903D /* Config.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		3CDC3BA12C57CBF4004E953E /* BigEmoticons */ = {
@@ -236,18 +270,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8728142C58B08F00FF903D /* UIViewController+.swift in Sources */,
 				0EAEF5672C57528600F75E70 /* MainViewController.swift in Sources */,
 				0E5F44522C5764E300FAFE52 /* CustomCollectionViewCell.swift in Sources */,
 				0EAEF5782C5757D800F75E70 /* UIColor+.swift in Sources */,
+				3C8728202C58C26500FF903D /* Config.swift in Sources */,
 				3C87280D2C58821000FF903D /* EmoticonsData.swift in Sources */,
 				3CDC3BA32C57CC09004E953E /* BigEmoticonsViewController.swift in Sources */,
 				3C87280B2C58643F00FF903D /* RecentCopiesViewController.swift in Sources */,
+				3C87281B2C58B98E00FF903D /* BaseCollectionViewCell.swift in Sources */,
+				3C8728192C58B6DE00FF903D /* Constants.swift in Sources */,
+				3C87281D2C58BB5400FF903D /* BigTagCell.swift in Sources */,
 				0E5F44542C57768E00FAFE52 /* DetailViewController.swift in Sources */,
-				0E5F44592C57834F00FAFE52 /* TagCell.swift in Sources */,
+				0E5F44592C57834F00FAFE52 /* EmoticonTagCell.swift in Sources */,
 				3C87280F2C58822200FF903D /* BigEmoticonsData.swift in Sources */,
 				0EAEF5632C57528600F75E70 /* AppDelegate.swift in Sources */,
 				0E5F44572C57828700FAFE52 /* BaseNC.swift in Sources */,
 				0EAEF5652C57528600F75E70 /* SceneDelegate.swift in Sources */,
+				3C8728162C58B22600FF903D /* CALayer+.swift in Sources */,
 				0E5F445B2C57837400FAFE52 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,7 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 92YDTRVDUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Conty/Info.plist;
@@ -420,7 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 92YDTRVDUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Conty/Info.plist;

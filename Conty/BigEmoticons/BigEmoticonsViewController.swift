@@ -32,7 +32,7 @@ public class BigEmoticonsViewController: UIViewController, UICollectionViewDataS
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(TagCells.self, forCellWithReuseIdentifier: "tagCellId")
+        collectionView.register(BigTagCell.self, forCellWithReuseIdentifier: "tagCellId")
         layoutCollectionView()
         
         title = "ʕ　·ᴥ·ʔ"
@@ -69,7 +69,7 @@ public class BigEmoticonsViewController: UIViewController, UICollectionViewDataS
     }
     
     func registerCells() {
-        collectionView.register(TagCells.self, forCellWithReuseIdentifier: "tagCellId")
+        collectionView.register(BigTagCell.self, forCellWithReuseIdentifier: "tagCellId")
     }
 }
 
@@ -79,11 +79,10 @@ extension BigEmoticonsViewController {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCellId", for: indexPath) as? TagCells else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCellId", for: indexPath) as? BigTagCell else {
             fatalError("Unable to dequeue TagCell")
         }
         cell.textView.text = tagList[indexPath.row]
-        cell.setup()
         cell.textView.tag = indexPath.item
         if indexPath == selectedIndexPath {
             cell.flipColors()
@@ -98,11 +97,11 @@ extension BigEmoticonsViewController {
             return
         }
         
-        if let selectedIndexPath = selectedIndexPath, let oldCell = collectionView.cellForItem(at: selectedIndexPath) as? TagCells {
+        if let selectedIndexPath = selectedIndexPath, let oldCell = collectionView.cellForItem(at: selectedIndexPath) as? BigTagCell {
             oldCell.resetColors()
         }
         
-        if let cell = collectionView.cellForItem(at: indexPath) as? TagCells {
+        if let cell = collectionView.cellForItem(at: indexPath) as? BigTagCell {
             cell.flipColors()
             UIPasteboard.general.string = cell.textView.text
             showToast(message: "방금 클릭한 콘티가 복사되었어요!")
@@ -123,84 +122,5 @@ extension BigEmoticonsViewController {
         let targetSize = CGSize(width: width, height: UIView.layoutFittingExpandedSize.height)
         let estimatedSize = label.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
         return CGSize(width: width, height: estimatedSize.height)
-    }
-}
-
-class TagCells: UICollectionViewCell {
-    let textView = UITextView().then {
-        $0.textColor = .white
-        $0.backgroundColor = .mainTintColor
-        $0.isEditable = false
-        $0.isSelectable = false
-        $0.isUserInteractionEnabled = false
-        $0.font = UIFont.systemFont(ofSize: 16)
-        $0.textAlignment = .center
-        $0.layer.cornerRadius = 5
-        $0.clipsToBounds = true
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.addSubview(textView)
-        textView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(5)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func setup() {
-        textView.textAlignment = .center
-        textView.layer.borderWidth = 1
-        textView.layer.borderColor = UIColor.lightGray.cgColor
-    }
-
-    func flipColors() {
-        let newBackgroundColor: UIColor = textView.backgroundColor == UIColor.mainTintColor ? .white : .mainTintColor
-        let newTextColor: UIColor = textView.textColor == UIColor.white ? .black : .white
-        UIView.animate(withDuration: 0.3) {
-            self.textView.backgroundColor = newBackgroundColor
-            self.textView.textColor = newTextColor
-        }
-    }
-    
-    func resetColors() {
-        textView.backgroundColor = .mainTintColor
-        textView.textColor = .white
-    }
-}
-
-extension UIViewController {
-    func showToast(message: String) {
-        let toastLabel = UILabel().then {
-            $0.text = message
-            $0.backgroundColor = UIColor.mainSubColor.withAlphaComponent(0.6)
-            $0.textColor = UIColor.white
-            $0.textAlignment = .center
-            $0.font = UIFont.systemFont(ofSize: 16)
-            $0.layer.cornerRadius = 10
-            $0.clipsToBounds = true
-            $0.alpha = 0
-        }
-        
-        view.addSubview(toastLabel)
-        toastLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-30)
-            make.width.equalTo(270)
-            make.height.equalTo(28)
-        }
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-            toastLabel.alpha = 1.0
-        }) { _ in
-            UIView.animate(withDuration: 0.5, delay: 2.5, options: .curveEaseOut, animations: {
-                toastLabel.alpha = 0.0
-            }) { _ in
-                toastLabel.removeFromSuperview()
-            }
-        }
     }
 }

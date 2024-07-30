@@ -21,8 +21,8 @@
 		0EAEF5782C5757D800F75E70 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAEF5772C5757D800F75E70 /* UIColor+.swift */; };
 		0EAEF57B2C575AE100F75E70 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0EAEF57A2C575AE100F75E70 /* SnapKit */; };
 		0EAEF57E2C575AEF00F75E70 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 0EAEF57D2C575AEF00F75E70 /* Then */; };
+		3C87280B2C58643F00FF903D /* RecentCopiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87280A2C58643F00FF903D /* RecentCopiesViewController.swift */; };
 		3CDC3B9E2C57C878004E953E /* BigEmoticonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC3B9D2C57C878004E953E /* BigEmoticonsData.swift */; };
-		3CDC3BA02C57CAF0004E953E /* TabparViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC3B9F2C57CAF0004E953E /* TabparViewController.swift */; };
 		3CDC3BA32C57CC09004E953E /* BigEmoticonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDC3BA22C57CC09004E953E /* BigEmoticonsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +41,8 @@
 		0EAEF56E2C57528800F75E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EAEF5702C57528800F75E70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EAEF5772C5757D800F75E70 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		3C87280A2C58643F00FF903D /* RecentCopiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCopiesViewController.swift; sourceTree = "<group>"; };
 		3CDC3B9D2C57C878004E953E /* BigEmoticonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigEmoticonsData.swift; sourceTree = "<group>"; };
-		3CDC3B9F2C57CAF0004E953E /* TabparViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabparViewController.swift; sourceTree = "<group>"; };
 		3CDC3BA22C57CC09004E953E /* BigEmoticonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigEmoticonsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +118,7 @@
 				0EAEF5622C57528600F75E70 /* AppDelegate.swift */,
 				0EAEF5642C57528600F75E70 /* SceneDelegate.swift */,
 				0EAEF5662C57528600F75E70 /* MainViewController.swift */,
+				3C8728092C58643A00FF903D /* RecentCopies */,
 				3CDC3BA12C57CBF4004E953E /* BigEmoticons */,
 				0E5F445C2C57838C00FAFE52 /* DetailVC */,
 				0E5F445D2C57839C00FAFE52 /* Cell */,
@@ -125,7 +126,6 @@
 				0EAEF56B2C57528800F75E70 /* Assets.xcassets */,
 				0EAEF56D2C57528800F75E70 /* LaunchScreen.storyboard */,
 				0EAEF5702C57528800F75E70 /* Info.plist */,
-				3CDC3B9F2C57CAF0004E953E /* TabparViewController.swift */,
 			);
 			path = Conty;
 			sourceTree = "<group>";
@@ -136,6 +136,14 @@
 				0EAEF5772C5757D800F75E70 /* UIColor+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3C8728092C58643A00FF903D /* RecentCopies */ = {
+			isa = PBXGroup;
+			children = (
+				3C87280A2C58643F00FF903D /* RecentCopiesViewController.swift */,
+			);
+			path = RecentCopies;
 			sourceTree = "<group>";
 		};
 		3CDC3BA12C57CBF4004E953E /* BigEmoticons */ = {
@@ -228,10 +236,10 @@
 				0E5F44522C5764E300FAFE52 /* CustomCollectionViewCell.swift in Sources */,
 				0EAEF5782C5757D800F75E70 /* UIColor+.swift in Sources */,
 				3CDC3BA32C57CC09004E953E /* BigEmoticonsViewController.swift in Sources */,
+				3C87280B2C58643F00FF903D /* RecentCopiesViewController.swift in Sources */,
 				0E5F44602C57842A00FAFE52 /* EmoticonsData.swift in Sources */,
 				0E5F44542C57768E00FAFE52 /* DetailViewController.swift in Sources */,
 				0E5F44592C57834F00FAFE52 /* TagCell.swift in Sources */,
-				3CDC3BA02C57CAF0004E953E /* TabparViewController.swift in Sources */,
 				3CDC3B9E2C57C878004E953E /* BigEmoticonsData.swift in Sources */,
 				0EAEF5632C57528600F75E70 /* AppDelegate.swift in Sources */,
 				0E5F44572C57828700FAFE52 /* BaseNC.swift in Sources */,

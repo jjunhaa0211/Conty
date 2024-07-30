@@ -35,7 +35,7 @@ public class BigEmoticonsViewController: UIViewController, UICollectionViewDataS
         collectionView.register(TagCells.self, forCellWithReuseIdentifier: "tagCellId")
         layoutCollectionView()
         
-        title = "ʕ◍·̀Ⱉ·́◍ʔ"
+        title = "ʕ　·ᴥ·ʔ"
         setupNavigationBar()
     }
     
@@ -62,7 +62,9 @@ public class BigEmoticonsViewController: UIViewController, UICollectionViewDataS
     func layoutCollectionView() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -103,7 +105,7 @@ extension BigEmoticonsViewController {
         if let cell = collectionView.cellForItem(at: indexPath) as? TagCells {
             cell.flipColors()
             UIPasteboard.general.string = cell.textView.text
-            showToast(message: "\(cell.textView.text!) copied!")
+            showToast(message: "방금 클릭한 콘티가 복사되었어요!")
         }
         
         selectedIndexPath = indexPath
@@ -111,7 +113,7 @@ extension BigEmoticonsViewController {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = tagList[indexPath.item]
-        let width = collectionView.frame.width - 20 // 좌우 마진 고려
+        let width = collectionView.frame.width - 20
         let label = UILabel()
         label.numberOfLines = 0
         label.text = text
@@ -140,8 +142,8 @@ class TagCells: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(textView)
-        textView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(5)
+        textView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(5)
         }
     }
     
@@ -174,7 +176,7 @@ extension UIViewController {
     func showToast(message: String) {
         let toastLabel = UILabel().then {
             $0.text = message
-            $0.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            $0.backgroundColor = UIColor.mainSubColor.withAlphaComponent(0.6)
             $0.textColor = UIColor.white
             $0.textAlignment = .center
             $0.font = UIFont.systemFont(ofSize: 16)

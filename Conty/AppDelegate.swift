@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Conty
-//
-//  Created by 박준하 on 7/29/24.
-//
-
 import UIKit
 
 @main

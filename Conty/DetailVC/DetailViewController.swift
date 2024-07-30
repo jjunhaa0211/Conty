@@ -101,6 +101,15 @@ public class DetailViewController: UIViewController {
             })
         })
     }
+    
+    private func saveCopiedText(_ text: String) {
+        var copiedItems = UserDefaults.standard.stringArray(forKey: "copiedMessages") ?? []
+        if let index = copiedItems.firstIndex(of: text) {
+            copiedItems.remove(at: index)
+        }
+        copiedItems.insert(text, at: 0)
+        UserDefaults.standard.set(copiedItems, forKey: "copiedMessages")
+    }
 }
 
 @available(iOS 16.0, *)
@@ -119,15 +128,15 @@ extension DetailViewController: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          let cell = collectionView.cellForItem(at: indexPath) as? TagCell
+        let cell = collectionView.cellForItem(at: indexPath) as? TagCell
 
-          if let text = cell?.tagLabel.text {
-              UIPasteboard.general.string = text
-              showToasts(message: "방금 클릭한 콘티가 복사되었어요!")
-          }
-
-          cell?.isSelected = true
-      }
+        if let text = cell?.tagLabel.text {
+            UIPasteboard.general.string = text
+            saveCopiedText(text)
+            showToasts(message: "방금 클릭한 콘티가 복사되었어요!")
+        }
+        cell?.isSelected = true
+    }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? TagCell

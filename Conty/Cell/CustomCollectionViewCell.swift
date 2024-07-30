@@ -76,7 +76,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOpacity = 0.1
     }
     
-    func configure(with image: UIImage?, emoji: String?, title: String, subtitle: String) {
+    func configure(emoji: String?, title: String, subtitle: String) {
         centerLabel.text = emoji
         titleLabel.text = title
         subtitleLabel.text = subtitle

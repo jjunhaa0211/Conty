@@ -6,7 +6,6 @@ struct CellData {
     var title: String
     var subtitle: String
     var emoji: String
-    var image: UIImage
 }
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -17,6 +16,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var dataSource: [[String]] = [
         happyEmoticons,
         specialEmoticons,
+        surpriseEmoticons,
         worryEmojis,
         embarrassedEmojis,
         catEmojis,
@@ -25,7 +25,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         greetingEmojis,
         bearEmojis,
         rabbits,
-        ducks
+        ducks,
+        smartEmoticons,
+        pigEmoticons,
+        magicEmoticons,
+        loveEmoticons,
+        sickEmoticons,
+        thumbsUpEmoticons,
+        sadEmoticons,
+        winkEmoticons,
+        unmotivatedEmoticons,
+        sleepyEmoticons,
+        fistEmoticons,
+        gunEmoticons,
+        christmasEmoticons,
+        flowerEmoticons,
+        kissEmoticons,
+        excitedEmoticons
     ]
     
     override func viewDidLoad() {
@@ -48,7 +64,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 $0.configureWithOpaqueBackground()
                 $0.backgroundColor = UIColor.mainTintColor
                 $0.titleTextAttributes = textAttributes
-                
             }
             
             navigationController?.navigationBar.standardAppearance = appearance
@@ -57,23 +72,60 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             navigationController?.navigationBar.barTintColor = UIColor.mainTintColor
             navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
+
+        let leftButton = UIBarButtonItem(title: "ʕ　·ᴥ·ʔ", style: .plain, target: self, action: #selector(leftButtonTapped))
+        let rightButton = UIBarButtonItem(title: "ʕ·ᴥ·　ʔ", style: .plain, target: self, action: #selector(rightButtonTapped))
+        
+        let buttonAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 12.0, weight: .bold),
+            .foregroundColor: UIColor.white
+        ]
+        leftButton.setTitleTextAttributes(buttonAttributes, for: .normal)
+        rightButton.setTitleTextAttributes(buttonAttributes, for: .normal)
+        
+        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.rightBarButtonItem = rightButton
     }
+
     
     
     func loadData() {
+        guard dataSource.count >= 27 else {
+            print("Data source does not have enough categories.")
+            return
+        }
+
         cellData = [
-            CellData(title: "#행복해요", subtitle: "໒꒰ྀི•ू⁼̴̶̤̀༥⁼̴̶̤́•ू ꒱ྀི১", emoji: "🥴", image: UIImage(systemName: "house")!),
-            CellData(title: "#화났어요", subtitle: "ʕ•̀⤙•́ ʔ", emoji: "😡", image: UIImage(systemName: "car")!),
-            CellData(title: "#걱정돼요", subtitle: "( ⸝⸝･̆⤚･̆⸝⸝)", emoji: "🥺", image: UIImage(systemName: "bicycle")!),
-            CellData(title: "#곤란해요", subtitle: "(〃•︵•〃)", emoji: "😖", image: UIImage(systemName: "airplane")!),
-            CellData(title: "#냥냥이", subtitle: "₍˄·͈༝·͈˄₎", emoji: "🐱", image: UIImage(systemName: "tram")!),
-            CellData(title: "#댕댕이", subtitle: "૮(˳❛ ⌔̫ ❛˳)ა", emoji: "🐶", image: UIImage(systemName: "ferry")!),
-            CellData(title: "#부탁해요", subtitle: "(っ ॑꒳ ॑c )", emoji: "🙏", image: UIImage(systemName: "tram")!),
-            CellData(title: "#인사해요", subtitle: "꒰⸝⸝•ᴗ•⸝⸝꒱੭⁾⁾", emoji: "👋", image: UIImage(systemName: "ferry")!),
-            CellData(title: "#곰탱이", subtitle: "ʕ •ᴥ•ʔゝ☆", emoji: "🐻", image: UIImage(systemName: "ferry")!),
-            CellData(title: "#토순이", subtitle: "ᐢ⸝⸝ ›　 ̫ ‹ ⸝⸝ᐢ₎", emoji: "🐰", image: UIImage(systemName: "ferry")!),
-            CellData(title: "#꽥꽥이", subtitle: "ヾ(￣◇￣)ノ", emoji: "🐥", image: UIImage(systemName: "ferry")!)
+            CellData(title: "#행복해요", subtitle: dataSource[0].randomElement() ?? "No subtitle available", emoji: "🥴"),
+            CellData(title: "#특별해요", subtitle: dataSource[1].randomElement() ?? "No subtitle available", emoji: "😄"),
+            CellData(title: "#놀랐어요", subtitle: dataSource[2].randomElement() ?? "No subtitle available", emoji: "🫢"),
+            CellData(title: "#걱정돼요", subtitle: dataSource[3].randomElement() ?? "No subtitle available", emoji: "🥺"),
+            CellData(title: "#곤란해요", subtitle: dataSource[4].randomElement() ?? "No subtitle available", emoji: "😖"),
+            CellData(title: "#냥냥이", subtitle: dataSource[5].randomElement() ?? "No subtitle available", emoji: "🐱"),
+            CellData(title: "#댕댕이", subtitle: dataSource[6].randomElement() ?? "No subtitle available", emoji: "🐶"),
+            CellData(title: "#부탁해요", subtitle: dataSource[7].randomElement() ?? "No subtitle available", emoji: "🙏"),
+            CellData(title: "#인사해요", subtitle: dataSource[8].randomElement() ?? "No subtitle available", emoji: "👋"),
+            CellData(title: "#곰탱이", subtitle: dataSource[9].randomElement() ?? "No subtitle available", emoji: "🐻"),
+            CellData(title: "#토순이", subtitle: dataSource[10].randomElement() ?? "No subtitle available", emoji: "🐰"),
+            CellData(title: "#꽥꽥이", subtitle: dataSource[11].randomElement() ?? "No subtitle available", emoji: "🐥"),
+            CellData(title: "#똑똑해요", subtitle: dataSource[12].randomElement() ?? "No subtitle available", emoji: "🤓"),
+            CellData(title: "#돼지", subtitle: dataSource[13].randomElement() ?? "No subtitle available", emoji: "🐷"),
+            CellData(title: "#마법", subtitle: dataSource[14].randomElement() ?? "No subtitle available", emoji: "🔮"),
+            CellData(title: "#사랑해요", subtitle: dataSource[15].randomElement() ?? "No subtitle available", emoji: "🫶"),
+            CellData(title: "#아파요", subtitle: dataSource[16].randomElement() ?? "No subtitle available", emoji: "🤒"),
+            CellData(title: "#따봉", subtitle: dataSource[17].randomElement() ?? "No subtitle available", emoji: "👍"),
+            CellData(title: "#우울해요", subtitle: dataSource[18].randomElement() ?? "No subtitle available", emoji: "😔"),
+            CellData(title: "#윙크", subtitle: dataSource[19].randomElement() ?? "No subtitle available", emoji: "😉"),
+            CellData(title: "#의욕없어요", subtitle: dataSource[20].randomElement() ?? "No subtitle available", emoji: "😞"),
+            CellData(title: "#졸려요", subtitle: dataSource[21].randomElement() ?? "No subtitle available", emoji: "😴"),
+            CellData(title: "#주먹", subtitle: dataSource[22].randomElement() ?? "No subtitle available", emoji: "✊"),
+            CellData(title: "#총", subtitle: dataSource[23].randomElement() ?? "No subtitle available", emoji: "🔫"),
+            CellData(title: "#크리스마스", subtitle: dataSource[24].randomElement() ?? "No subtitle available", emoji: "🎄"),
+            CellData(title: "#꽃", subtitle: dataSource[25].randomElement() ?? "No subtitle available", emoji: "🌸"),
+            CellData(title: "#키스", subtitle: dataSource[26].randomElement() ?? "No subtitle available", emoji: "💋"),
+            CellData(title: "#흥분해요", subtitle: dataSource[27].randomElement() ?? "No subtitle available", emoji: "😆")
         ]
+
     }
     
     func setupCollectionView() {
@@ -107,7 +159,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionViewCell
         let data = cellData[indexPath.item]
-        cell.configure(with: data.image, emoji: data.emoji, title: data.title, subtitle: data.subtitle)
+        cell.configure(emoji: data.emoji, title: data.title, subtitle: data.subtitle)
         
         return cell
     }
@@ -127,5 +179,16 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let sideLength = (totalWidthAvailable / 2).rounded(.down)
         
         return CGSize(width: sideLength, height: sideLength)
+    }
+    
+    @objc func leftButtonTapped() {
+        print("왼쪽 버튼이 눌렸습니다.")
+        self.navigationController?.pushViewController(BigEmoticonsViewController(tagList: tagList), animated: true)
+    }
+
+    @objc func rightButtonTapped() {
+        print("오른쪽 버튼이 눌렸습니다.")
+        let recentCopiesVC = RecentCopiesViewController()
+        navigationController?.pushViewController(recentCopiesVC, animated: true)
     }
 }
